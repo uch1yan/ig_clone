@@ -8,8 +8,15 @@ Bundler.require(*Rails.groups)
 
 module IgClone
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+    config.i18n.default_locale = :ja
     config.load_defaults 6.0
+
+    config.generators do |g|
+      g.assets false
+      g.helper false
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

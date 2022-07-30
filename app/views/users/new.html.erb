@@ -1,7 +1,18 @@
+<%= form_with(model: @user, local: true) do |f| %>
 <div class="wrapper">
   <h1>Sign up</h1>
 
-  <%= form_with(model: @user, local: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <%= @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %>
 
