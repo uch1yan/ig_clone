@@ -20,5 +20,10 @@ class PicturesController < ApplicationController
     @picture = current_user.pictures.build(picture_params)
     render :new if @picture.invalid?
   end
-  
+
+  private
+
+  def picture_params
+    params.require(:picture).permit(:image, :image_cache)
+  end 
 end
