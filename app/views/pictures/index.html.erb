@@ -15,12 +15,12 @@
       <tr>
         <td><%= picture.user.name %></td>
         <td><%= picture.content %></td>
-        <td><%= image_tag picture.image_url(:thumb) %></td>
+        <td><%= image_tag picture.image_url %></td>
         <td><%= link_to '編集', edit_picture_path(picture) %></td>
         <td><%= link_to '削除', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     </table-body>
   </table>
-
-  <% link_to '新規投稿ページへ', new_picture_path %>
+  <%= link_to '新規投稿ページへ', new_picture_path %>
+</div>
