@@ -1,9 +1,15 @@
 <div calss="wrapper">
   <h1>Welcome to <%= @user.name %>'s page</h1>
 
-  <% if @user == current_user %>
-    <p><%= link_to '編集', edit_user_path(@user) %></p>
-  <% end %>
+  <p>メールアドレス:<%= @user.email %></p>
+  <p><strong>画像:</strong>
+    <%= image_tag @user.image.url if @user.image && @user.image.url %>
+  </p>
+  <br>
 
+  <p><%= link_to '編集', edit_user_path(@user.id) %></p>
+
+  <br><br><br>
   <p><%= link_to '新規投稿を作成', new_picture_path %></p>
+  <p><%= link_to '投稿一覧へ', pictures_path %></p>
 </div>

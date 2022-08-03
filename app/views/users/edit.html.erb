@@ -1,32 +1,35 @@
 <div class="wrapper">
   <h1>ユーザー情報の編集</h1>
-
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <%= form_with(model: @user, local: true) do |f| %>
-    <p><%= f.label :name %></p>
-    <P><%= f.text_field :name %></P>
 
-    <P><%= f.label :email %></P>
-    <p><%= f.email_field :email %></p>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <p><%= f.label :name %></p>
+      <P><%= f.text_field :name %></P>
 
-    <P><%= f.label :password %></P>
-    <P><%= f.password_field :password %></P>
+      <P><%= f.label :email %></P>
+      <p><%= f.email_field :email %></p>
 
-    <P><%= f.label :password_confirmation %></P>
-    <P><%= f.password_field :password_confirmation %></P>
+      <P><%= f.label :image %></P>
+      <p><%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+      <p><%= f.file_field :image %>
+      <p><%= f.hidden_field :image_cache %>
 
-    <%= f.submit "更新する" %>
-  <% end %>
+      <P><%= f.label :password %></P>
+      <P><%= f.password_field :password %></P>
 
-  <%= link_to '投稿一覧画面へ戻る', pictures_path %>
-</div>
+      <P><%= f.label :password_confirmation %></P>
+      <P><%= f.password_field :password_confirmation %></P>
+
+      <%= f.submit "更新する" %>
+    <% end %>
+    <%= link_to '投稿一覧画面へ戻る', pictures_path %>
+  </div>
