@@ -1,5 +1,9 @@
 <div calss="wrapper">
-  <h1><%= @user.name %>'s page</h1>
+  <h1>Welcome to <%= @user.name %>'s page</h1>
 
-  <p>メールアドレス: <%= @user.email %></p>
+  <% if @user == current_user %>
+    <p><%= link_to '編集', edit_user_path(@user) %></p>
+  <% end %>
+
+  <p><%= link_to '新規投稿を作成', new_picture_path %></p>
 </div>
