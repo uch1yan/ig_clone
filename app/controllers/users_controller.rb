@@ -36,8 +36,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   private
 
   def user_params
@@ -47,9 +45,7 @@ class UsersController < ApplicationController
   def authenticate_user
     @user = User.find(params[:id])
     unless @user == current_user
-      # flash[:danger] = "アクセスする権限がありません"
       redirect_to new_session_path
     end
   end
-
 end

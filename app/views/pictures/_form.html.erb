@@ -1,9 +1,9 @@
 <%= form_with(model: picture, local: true, url: choose_new_or_edit) do |form| %>
   <div class="field">
     <p class="mb-1 text-center"><%= form.label :image %></p>
-    <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
+    <p class="icon-image"><%= image_tag(picture.image.url) if picture.image && picture.image.url %></p>
 
-    <P class="mb-3 mt-2 text-center"><%= form.file_field :image %></P>
+    <p class="icon-image"><%= form.file_field :image %></P>
     <P><%= form.hidden_field :image_cache %></P>
 
     <P class="mb-1 text-center"><%= form.label :content %>
