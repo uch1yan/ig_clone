@@ -13,13 +13,24 @@
 
   <% unless @picture.user_id == current_user.id %>
     <% if @favorite.present? %>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <button type="button" class="btn btn-outline-danger">
+      <%= link_to 'unlike', favorite_path(id: @favorite.id), method: :delete %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heartbreak-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.931.586 7 3l1.5 4-2 3L8 15C22.534 5.396 13.757-2.21 8.931.586ZM7.358.77 5.5 3 7 7l-1.5 3 1.815 4.537C-6.533 4.96 2.685-2.467 7.358.77Z"></path>
+      </svg>
+    </button>
+
     <% else %>
-      <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
+
+     <button type="button" class="btn btn-outline-danger"><%= link_to 'Like', favorites_path(picture_id: @picture.id), method: :post %>
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+       </svg>
+      </button>
     <% end %>
   <% end %>
 
   <%= link_to '投稿一覧に戻る', pictures_path %>
-  <% if @picture.user == current_user %>
-    <%= link_to '編集', edit_picture_path(@picture) %>
-  <% end %>
+    <% if @picture.user == current_user %>
+      <%= link_to '編集', edit_picture_path(@picture) %>
+    <% end %>

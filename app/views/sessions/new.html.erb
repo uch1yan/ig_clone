@@ -1,13 +1,21 @@
-<div class="wrapper">
-  <h1>Log in</h1>
-  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<div class ="container">
+  <div class="wrapper">
+    <h1>Log in</h1>
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <form action ="" method="post" name="Login_Form" class="form-signin">
+      <h3 class="form-signin-heading">Welcome back!! Please enjoy!</h3>
+        <hr clas="colorgragh"><br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <p class="mb-2"><%= f.label :email %></p>
+      <p><%= f.email_field :email, class:"w-25" %></p>
 
-    <%= f.submit "Log in" %>
-  <% end %>
+      <p class="mb-2"><%= f.label :password %></p>
+      <p><%= f.password_field :password, class:"w-25" %></p>
+
+
+      <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+    </form>
+    <% end %>
+  </div>
 </div>

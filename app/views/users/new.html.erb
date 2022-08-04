@@ -1,36 +1,44 @@
 <%= form_with(model: @user, local: true) do |f| %>
-<div class="wrapper">
-  <h1>Sign up</h1>
+<div class ="container">
+  <div class="wrapper">
+    <h1>Sign up</h1>
 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <%= @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        <%= @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <form action ="" method="post" name="Login_Form" class="form-signin">
+      <h3 class="form-signin-heading">Welcome!! Please sign in!</h3>
+        <hr clas="colorgragh"><br>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+          <p class="mb-2"><%= f.label :name %></p>
+          <P><%= f.text_field :name, class:"w-25" %></P>
 
-    <%= f.label :image %>
-    <%= f.image_tag(@user.image.url) if @user.image && @user.image.url %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
+          <p class="mb-2"><%= f.label :email %></P>
+          <p><%= f.email_field :email, class:"w-25" %></p>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+          <P class="mb-2"><%= f.label :プロフィール画像 %></P>
+          <p><%= f.file_field :image, class:"w-25" %></p>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    <br>
-    
-    <%= f.submit "Create my account" %>
-  <% end %>
+          <p class="mb-2"><%= f.label :プロフィール %></p>
+          <P><%= f.text_field :content, class:"w-25 rounded-circle" %></P>
+
+          <P class="mb-2"><%= f.label :password %></P>
+          <P><%= f.password_field :password, class:"w-25" %></P>
+
+          <P class="mb-2"><%= f.label :password_confirmation %></P>
+          <P><%= f.password_field :password_confirmation, class:"w-25" %></P>
+          <br>
+
+          <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Create my account</button>
+    </form>
+  </div>
 </div>
+<% end %>

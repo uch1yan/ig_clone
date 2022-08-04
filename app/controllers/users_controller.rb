@@ -41,15 +41,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache )
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache, :content)
   end
 
   def authenticate_user
     @user = User.find(params[:id])
     unless @user == current_user
-      flash[:danger] = "アクセスする権限がありません"
+      # flash[:danger] = "アクセスする権限がありません"
       redirect_to new_session_path
     end
-  end 
+  end
 
 end

@@ -1,5 +1,7 @@
 <div class="wrapper">
   <h1>ユーザー情報の編集</h1>
+  <%= link_to new_session_path do %><i class="bi bi-heart-fill"></i><% end %>
+
   <%= form_with(model: @user, local: true) do |f| %>
 
     <% if @user.errors.any? %>
@@ -12,26 +14,25 @@
         </ul>
       </div>
     <% end %>
-      <p><%= f.label :name %></p>
-      <P><%= f.text_field :name %></P>
+      <p class="mb-2"><%= f.label :name %></p>
+      <P><%= f.text_field :name, class:"w-25" %></P>
 
-      <P><%= f.label :email %></P>
-      <p><%= f.email_field :email %></p>
+      <p class="mb-2"><%= f.label :email %></P>
+      <p><%= f.email_field :email, class:"w-25" %></p>
 
-      <P><%= f.label :image %></P>
+      <P class="mb-2"><%= f.label :image %></P>
       <p><%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-      <p><%= f.file_field :image %>
-      <p><%= f.hidden_field :image_cache %>
+      <p><%= f.file_field :image, class:"w-25" %>
 
-      <P><%= f.label :password %></P>
-      <P><%= f.password_field :password %></P>
+      <P class="mb-2"><%= f.label :password %></P>
+      <P><%= f.password_field :password, class:"w-25" %></P>
 
-      <P><%= f.label :password_confirmation %></P>
-      <P><%= f.password_field :password_confirmation %></P>
+      <P class="mb-2"><%= f.label :password_confirmation %></P>
+      <P><%= f.password_field :password_confirmation, class:"w-25" %></P>
 
       <%= f.submit "更新する" %>
     <% end %>
-    
+
     <% link_to '前のページに戻る', user_path %>
     <%= link_to '投稿一覧画面へ戻る', pictures_path %>
   </div>
