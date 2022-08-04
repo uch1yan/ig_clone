@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h1><%= current_user.name %>さんのお気に入り一覧</h1>
+
+  <table>
+    <table-head>
+      <tr>
+        <th>投稿者</th>
+        <th>コメント</th>
+        <th>画像</th>
+      </tr>
+    </table-head>
+
+    <table-body>
+    <%= @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.user.name %></td>
+        <td><%= favorite.content %></td>
+        <td><%= image_tag favorite.image.url if favorite.image.present? %></td>
+      </tr>
+    <% end %>
+    </table-body>
+  </table>
+
+  <p><%= link_to '投稿一覧に戻る', pictures_path %></p>
+</div>
