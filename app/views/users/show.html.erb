@@ -1,5 +1,6 @@
 <div calss="wrapper">
   <h1>Welcome to <%= @user.name %>'s page</h1>
+  <%= link_to 'お気に入り一覧へ', favorites_path %>
 
   <p>メールアドレス:<%= @user.email %></p>
   <p><strong>画像:</strong>

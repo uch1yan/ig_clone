@@ -11,7 +11,7 @@
     </table-head>
 
     <table-body>
-    <%= @favorites.each do |favorite| %>
+    <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.user.name %></td>
         <td><%= favorite.content %></td>
