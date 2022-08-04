@@ -19,13 +19,13 @@
     <% end %>
 
     <% if logged_in? %>
-        <a class="nav-link text-dark"><%= link_to "Profile", user_path(current_user.id) %></a>
-        <a class="nav-link text-dark"><%= button_to "Logout", session_path(current_user.id), method: :delete %></a>
-      <% else %>
-        <a class="nav-link text-dark" href="http://localhost:3000/users/new">Sign up</a>
-        <a class="nav-link text-dark" href="http://localhost:3000/sessions/new">Login</a>
-      <% end %>
+      <div class="float"><%= link_to "Profile", user_path(current_user.id) %></div>
+      <div class="float"><%= link_to "Logout", session_path(current_user.id), method: :delete %></div>
+    <% else %>
+      <div class="float"><%= link_to "Sign up", new_user_path %></div>
+      <div class="float"><%= link_to "Login", new_session_path %></div>
+    <% end %>
 
-      <%= yield %>
+    <%= yield %>
   </body>
 </html>

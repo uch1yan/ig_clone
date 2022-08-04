@@ -1,6 +1,7 @@
 <div class="wrapper">
   <h1>詳細ページ</h1>
 
+  <div class="show">
   <p>
     <strong>Image:</strong>
     <%= image_tag @picture.image.url %>
@@ -10,7 +11,7 @@
     <strong>コメント:</strong>
     <%= @picture.content %>
   </P>
-
+  </div>
   <% unless @picture.user_id == current_user.id %>
     <% if @favorite.present? %>
     <button type="button" class="btn btn-outline-danger">

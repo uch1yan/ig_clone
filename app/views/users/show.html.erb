@@ -1,15 +1,17 @@
 <div calss="wrapper">
-  <h1 class="mb-2 text-center">Welcome to <%= @user.name %>'s page  <i class="bi bi-person-circle"></i></h1>
-  <p class="text-center"><%= link_to 'お気に入り一覧へ', favorites_path %>
-  <i class="bi bi-heart-fill"></i></p>
+  <div class="clearfix"><br><br><br>
+    <h1 class="mb-2 text-center">Welcome to <%= @user.name %>'s page  <i class="bi bi-person-circle"></i></h1>
+    <p class="text-center"><%= link_to 'お気に入り一覧へ', favorites_path %>
+    <i class="bi bi-heart-fill"></i></p>
 
-  <p class="mb-2 text-center"><i class="bi bi-envelope-fill"></i>メールアドレス:<%= @user.email %></p>
-  <p class="mb-2 text-center"><strong>画像:</strong>
-  <p class="mb-2 text-center"><%= image_tag @user.image.url, class: "rounded-circle", size: "150*150" if @user.image && @user.image.url %></p>
-  <br>
-  <p class="mb-2 text-center"><%= link_to '編集', edit_user_path(@user.id), class:"btn btn-info" %></p>
+    <p class="mb-2 text-center"><i class="bi bi-envelope-fill"></i>メールアドレス:<%= @user.email %></p>
+    <p class="mb-2 text-center"><strong>画像:</strong>
+    <p class="mb-2 text-center"><%= image_tag @user.image.url, class: "rounded-circle", size: "150*150" if @user.image && @user.image.url %></p>
+    <br>
+    <p class="mb-2 text-center"><%= link_to '編集', edit_user_path(@user.id), class:"btn btn-info" %></p>
 
-  <br><br><br>
-  <p class="mb-3 text-center"><%= link_to '新規投稿を作成', new_picture_path, class:"btn btn-info" %></p>
-  <p class="mb-3 text-center"><%= link_to '投稿一覧へ', pictures_path, class:"btn btn-info" %></p>
+    <br><br><br>
+    <p class="mb-3 text-center"><%= link_to '新規投稿を作成', new_picture_path, class:"btn btn-info" %></p>
+    <p class="mb-3 text-center"><%= link_to '投稿一覧へ', pictures_path, class:"btn btn-info" %></p>
+  </div?
 </div>
