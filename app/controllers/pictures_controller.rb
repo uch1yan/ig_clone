@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
-    render :new if @picture.invalid?
+      flash.now[:danger] = 'Error! Please put a picture.' if @picture.invalid?
   end
 
   def destroy
